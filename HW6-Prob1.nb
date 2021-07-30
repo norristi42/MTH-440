@@ -1,0 +1,198 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7784,        188]
+NotebookOptionsPosition[      7140,        168]
+NotebookOutlinePosition[      7480,        183]
+CellTagsIndexPosition[      7437,        180]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Problem", " ", "1"}], ":", " ", 
+    RowBox[{"Totient", " ", "function"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Euler", "'"}], "s", " ", "Totient", " ", "Function", " ", 
+      "finds", " ", "the", " ", "number", " ", "of", " ", "integers", " ", 
+      "that", " ", "are", " ", "relatively", " ", "prime", " ", "to", " ", 
+      RowBox[{"n", ".", " ", "\[IndentingNewLine]", "If"}], " ", "gcd", 
+      RowBox[{"(", 
+       RowBox[{"z", ",", "n"}], ")"}]}], "=", "1"}], ",", " ", 
+    RowBox[{
+    "then", " ", "z", " ", "is", " ", "relatively", " ", "prime", " ", "to", 
+     " ", "n", " ", "for", " ", "all", " ", "integers", " ", 
+     RowBox[{"z", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"totient", "[", "n_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"relPrimeList", "=", 
+         RowBox[{"{", "}"}]}], ",", "i", ",", 
+        RowBox[{"count", "=", "0"}]}], "}"}], ",", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", 
+           RowBox[{"1000000", "+", "1"}]}], ",", 
+          RowBox[{"i", "\[LessEqual]", 
+           RowBox[{"n", "-", "1"}]}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"GCD", "[", 
+               RowBox[{"i", ",", "n"}], "]"}], "\[Equal]", "1"}], ",", 
+             RowBox[{
+              RowBox[{"count", "++"}], ";", " ", 
+              RowBox[{"AppendTo", "[", 
+               RowBox[{"relPrimeList", ",", "i"}], "]"}]}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", 
+         RowBox[{"StringForm", "[", 
+          RowBox[{
+          "\"\<The list of numbers that are relatively prime to 1,000,000+100 \
+are ``. There are `` numbers in total.\>\"", ",", "relPrimeList", ",", 
+           "count"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{"StringForm", "[", 
+         RowBox[{
+         "\"\<The minimum number of iterations we would need is: `` and the \
+maximum number is: ``\>\"", ",", "1", ",", "count"}], "]"}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"relPrimeList", ",", "count"}], "}"}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"totient", "[", 
+    RowBox[{"1000000", "+", "100"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.785103102964035*^9, 3.78510312945123*^9}, 
+   3.785103171530138*^9},
+ CellLabel->
+  "In[459]:=",ExpressionUUID->"8e4ee645-316c-4839-b973-abd23db2db30"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox["\<\"The list of numbers that are relatively prime to \
+1,000,000+100 are \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"1000001\\\", \
+\\\",\\\", \\\"1000003\\\", \\\",\\\", \\\"1000007\\\", \\\",\\\", \
+\\\"1000009\\\", \\\",\\\", \\\"1000011\\\", \\\",\\\", \\\"1000013\\\", \
+\\\",\\\", \\\"1000017\\\", \\\",\\\", \\\"1000019\\\", \\\",\\\", \
+\\\"1000021\\\", \\\",\\\", \\\"1000023\\\", \\\",\\\", \\\"1000029\\\", \
+\\\",\\\", \\\"1000031\\\", \\\",\\\", \\\"1000033\\\", \\\",\\\", \
+\\\"1000037\\\", \\\",\\\", \\\"1000039\\\", \\\",\\\", \\\"1000041\\\", \
+\\\",\\\", \\\"1000043\\\", \\\",\\\", \\\"1000047\\\", \\\",\\\", \
+\\\"1000049\\\", \\\",\\\", \\\"1000051\\\", \\\",\\\", \\\"1000053\\\", \
+\\\",\\\", \\\"1000057\\\", \\\",\\\", \\\"1000059\\\", \\\",\\\", \
+\\\"1000061\\\", \\\",\\\", \\\"1000063\\\", \\\",\\\", \\\"1000067\\\", \
+\\\",\\\", \\\"1000069\\\", \\\",\\\", \\\"1000071\\\", \\\",\\\", \
+\\\"1000073\\\", \\\",\\\", \\\"1000077\\\", \\\",\\\", \\\"1000079\\\", \
+\\\",\\\", \\\"1000081\\\", \\\",\\\", \\\"1000083\\\", \\\",\\\", \
+\\\"1000087\\\", \\\",\\\", \\\"1000089\\\", \\\",\\\", \\\"1000091\\\", \
+\\\",\\\", \\\"1000093\\\", \\\",\\\", \\\"1000097\\\", \\\",\\\", \
+\\\"1000099\\\"}], \\\"}\\\"}]\\). There are \\!\\(\\*RowBox[{\\\"39\\\"}]\\) \
+numbers in total.\"\>",
+  StringForm[
+  "The list of numbers that are relatively prime to 1,000,000+100 are ``. \
+There are `` numbers in total.", {1000001, 1000003, 1000007, 1000009, 1000011,
+    1000013, 1000017, 1000019, 1000021, 1000023, 1000029, 1000031, 1000033, 
+   1000037, 1000039, 1000041, 1000043, 1000047, 1000049, 1000051, 1000053, 
+   1000057, 1000059, 1000061, 1000063, 1000067, 1000069, 1000071, 1000073, 
+   1000077, 1000079, 1000081, 1000083, 1000087, 1000089, 1000091, 1000093, 
+   1000097, 1000099}, 39],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.785103161167038*^9, 3.7851031746994677`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[459]:=",ExpressionUUID->"9e11b4db-1b3e-4b29-b08b-e62b167f59bf"],
+
+Cell[BoxData[
+ InterpretationBox["\<\"The minimum number of iterations we would need is: \
+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) and the maximum number is: \
+\\!\\(\\*RowBox[{\\\"39\\\"}]\\)\"\>",
+  StringForm[
+  "The minimum number of iterations we would need is: `` and the maximum \
+number is: ``", 1, 39],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.785103161167038*^9, 3.785103174702593*^9}},
+ CellLabel->
+  "During evaluation of \
+In[459]:=",ExpressionUUID->"b020776a-2343-454e-8f2d-5d9152a69730"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1000001", ",", "1000003", ",", "1000007", ",", "1000009", ",", "1000011",
+      ",", "1000013", ",", "1000017", ",", "1000019", ",", "1000021", ",", 
+     "1000023", ",", "1000029", ",", "1000031", ",", "1000033", ",", 
+     "1000037", ",", "1000039", ",", "1000041", ",", "1000043", ",", 
+     "1000047", ",", "1000049", ",", "1000051", ",", "1000053", ",", 
+     "1000057", ",", "1000059", ",", "1000061", ",", "1000063", ",", 
+     "1000067", ",", "1000069", ",", "1000071", ",", "1000073", ",", 
+     "1000077", ",", "1000079", ",", "1000081", ",", "1000083", ",", 
+     "1000087", ",", "1000089", ",", "1000091", ",", "1000093", ",", 
+     "1000097", ",", "1000099"}], "}"}], ",", "39"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7851031611725807`*^9, 3.785103174705319*^9}},
+ CellLabel->
+  "Out[460]=",ExpressionUUID->"0276d9bd-f2ec-4e04-8db9-0e8bb60de245"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{236, Automatic}, {Automatic, 50}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3012, 74, 346, "Input",ExpressionUUID->"8e4ee645-316c-4839-b973-abd23db2db30"],
+Cell[CellGroupData[{
+Cell[3617, 100, 2047, 32, 82, "Print",ExpressionUUID->"9e11b4db-1b3e-4b29-b08b-e62b167f59bf"],
+Cell[5667, 134, 505, 11, 24, "Print",ExpressionUUID->"b020776a-2343-454e-8f2d-5d9152a69730"]
+}, Open  ]],
+Cell[6187, 148, 937, 17, 135, "Output",ExpressionUUID->"0276d9bd-f2ec-4e04-8db9-0e8bb60de245"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

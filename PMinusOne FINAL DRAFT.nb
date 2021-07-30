@@ -1,0 +1,195 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6980,        187]
+NotebookOptionsPosition[      6342,        167]
+NotebookOutlinePosition[      6679,        182]
+CellTagsIndexPosition[      6636,        179]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Problem", " ", "3", " ", "Pollard", " ", "p"}], "-", 
+    RowBox[{"1", " ", "Factorization"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Given", " ", "an", " ", "odd", " ", "number", " ", "N"}], ",", 
+    " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "we", " ", "will", " ", "perform", " ", "the", " ", "GCD", " ", "of", 
+        " ", "N"}], " ", "&"}], " ", 
+      RowBox[{"2", "^", 
+       RowBox[{"k", "!"}]}], " ", "for", " ", "k"}], "=", 
+     RowBox[{
+      RowBox[{
+      "2", " ", "until", " ", "we", " ", "find", " ", "a", " ", "non"}], "-", 
+      RowBox[{"trivial", " ", 
+       RowBox[{"factor", ".", " ", "Otherwise"}]}]}]}], ",", " ", 
+    RowBox[{
+    "we", " ", "will", " ", "iterate", " ", "k", " ", "until", " ", "the", 
+     " ", "condition", " ", "is", " ", 
+     RowBox[{"met", "."}]}]}], "*)"}], " ", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"pMinusOne", "[", "N_", "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"m", ",", 
+        RowBox[{"k", "=", "2"}], ",", "ans"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{"N", ",", "2"}], "]"}], "\[Equal]", "0"}], ",", " ", 
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{"StringForm", "[", 
+            RowBox[{"\"\<`` is even.\>\"", ",", "N"}], "]"}], "]"}], ";", 
+          RowBox[{"Return", "[", "0", "]"}]}], ",", " ", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"m", " ", "=", " ", 
+           RowBox[{"Mod", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"2", "^", 
+               RowBox[{"(", 
+                RowBox[{"k", "!"}], ")"}]}], "-", "1"}], ",", "N"}], "]"}]}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"ans", " ", "=", " ", 
+           RowBox[{"GCD", "[", 
+            RowBox[{"N", ",", "m"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Print", "[", 
+           RowBox[{"{", 
+            RowBox[{"m", ",", "ans", ",", "k"}], "}"}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"While", "[", 
+            RowBox[{
+             RowBox[{"ans", " ", "==", "1"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"k", "++"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"m", " ", "=", " ", 
+               RowBox[{"Mod", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"2", "^", 
+                   RowBox[{"(", 
+                    RowBox[{"k", "!"}], ")"}]}], "-", "1"}], ",", "N"}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"ans", " ", "=", " ", 
+               RowBox[{"GCD", "[", 
+                RowBox[{"N", ",", "m"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"Print", "[", 
+               RowBox[{"{", 
+                RowBox[{"m", ",", "ans", ",", "k"}], "}"}], "]"}]}]}], 
+            "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", 
+            RowBox[{"StringForm", "[", 
+             RowBox[{
+             "\"\<The prime factor of `` is: ``. The other factor is: ``\>\"",
+               ",", "N", ",", "ans", ",", 
+              RowBox[{"N", "/", "ans"}]}], "]"}], "]"}]}]}]}], 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"ans", ",", 
+          RowBox[{"N", "/", "ans"}]}], "}"}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"pMinusOne", "[", "69", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7843849846475477`*^9, 3.7843849871632414`*^9}, {
+  3.7843850580714664`*^9, 3.784385201059857*^9}, {3.784385249045537*^9, 
+  3.7843853597361*^9}, {3.784385435035063*^9, 3.7843855093652563`*^9}, {
+  3.7843855753514605`*^9, 3.784385656916235*^9}, {3.784386200944729*^9, 
+  3.78438620231126*^9}, {3.784890056668807*^9, 3.784890086779633*^9}, {
+  3.784935935011518*^9, 3.7849360919354343`*^9}, {3.784936224653776*^9, 
+  3.784936382807438*^9}, {3.784936561839952*^9, 3.7849365898128138`*^9}, {
+  3.78493667837208*^9, 3.7849366785830917`*^9}, {3.7849367770821953`*^9, 
+  3.784936784828433*^9}, {3.784936817810904*^9, 3.784937044286293*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"a3eb7505-3675-4ab0-a1ee-3c183a7a5863"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3", ",", "3", ",", "2"}], "}"}]], "Print",
+ CellChangeTimes->{
+  3.7849369233043203`*^9, {3.784936975454977*^9, 3.784937047261891*^9}},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"05088738-1959-45c3-a6b2-d08149c5de16"],
+
+Cell[BoxData[
+ InterpretationBox["\<\"The prime factor of \\!\\(\\*RowBox[{\\\"69\\\"}]\\) \
+is: \\!\\(\\*RowBox[{\\\"3\\\"}]\\). The other factor is: \\!\\(\\*RowBox[{\\\
+\"23\\\"}]\\)\"\>",
+  StringForm[
+  "The prime factor of `` is: ``. The other factor is: ``", 69, 3, 23],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.7849369233043203`*^9, {3.784936975454977*^9, 3.7849370472639236`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"8e6c9274-32b0-4f09-80fc-eb344c40548f"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3", ",", "23"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.784936923324061*^9, {3.784936975460638*^9, 3.7849370472657413`*^9}},
+ CellLabel->"Out[14]=",ExpressionUUID->"7465af56-9001-4d5c-8df8-5ed853f783dc"]
+}, Open  ]]
+},
+WindowSize->{963, 691},
+WindowMargins->{{11, Automatic}, {14, Automatic}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4670, 110, 514, "Input",ExpressionUUID->"a3eb7505-3675-4ab0-a1ee-3c183a7a5863"],
+Cell[CellGroupData[{
+Cell[5275, 136, 280, 7, 24, "Print",ExpressionUUID->"05088738-1959-45c3-a6b2-d08149c5de16"],
+Cell[5558, 145, 507, 11, 24, "Print",ExpressionUUID->"8e6c9274-32b0-4f09-80fc-eb344c40548f"]
+}, Open  ]],
+Cell[6080, 159, 246, 5, 68, "Output",ExpressionUUID->"7465af56-9001-4d5c-8df8-5ed853f783dc"]
+}, Open  ]]
+}
+]
+*)
+
